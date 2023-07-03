@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mystical Universe</title>
+    <style>
+        body {
+            font-family: "KG HAPPY Solid";
+            font-size: 30px;
+            text-align: center;
+            position: relative;
+            color: #500053;
+            text-shadow: 0 0 5px #0000005d;
+            /*background-color: rgba(109, 0, 82, 0.116);*/
+        }
+        
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(135deg, #6f00ff70, #28005c42), url("Imgs/wallpaper.jpg");
+            opacity: 0.8;
+            background-position: center;
+            background-size: cover;
+            z-index: -1;
+        }
+        
+        .container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: 100vh;
+          flex-direction: column;
+          padding: 20px;
+          text-align: center;
+        }
+        
+        h2 {
+          font-size: 30px;
+          font-family: "FORCED SQUARE";
+          margin-bottom: 10px;
+          color: #550055;
+          text-shadow: 1px 1px 2px #cf0a9e;
+          transition: background-color 0.3s;
+          padding: 10px;
+        }
+
+        h4 {
+            font-family: "FORCED SQUARE";
+            font-size: 30px;
+            text-shadow: 0 0 5px #0000005d;
+            margin: auto;
+            color: #550055;
+            text-shadow: 1px 1px 2px #cf0a9e;
+            padding: 10px 10px;
+        }
+
+        p {
+            font-size: 20px;
+            line-height: 1.5;
+            margin-left:  150px;
+            margin-right: 150px;
+            color: #500053;;
+            border: 3px double rgb(177, 0, 162);
+            transition: background-color 0.3s, text-shadow 0.3s, color 0.3s;
+        }
+        
+        p:hover {
+            background-color: #c85ddd75;
+            text-shadow: 1px 1px 2px #cf0a9e;
+            color: #500053;
+        }
+
+        img {
+            max-width: 400px;
+            height: 250px;
+            display: block;
+            margin: 20px auto;
+            border-radius: 100%;
+            border: 3px outset #b208b8;
+            box-shadow: none 10px #550055;
+            padding: 5px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
+            text-align: left;
+            margin-left: 50px;
+            margin-right: 50px;
+        }
+
+        li {
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 10px;
+            background-color: rgba(53, 0, 66, 0.3);
+            padding: 5px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+
+        li:hover {
+            background-color: #c85ddd75;
+            text-shadow: 1px 1px 2px #500053;
+            color: #cf0a9e;
+        }
+
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            width: 100%;
+            padding: 10px;
+        }
+
+        .flex-container div {
+            flex: 1;
+            text-align: center;
+        }
+
+        .flex-container div ul {
+            text-align: left;
+        }
+
+        audio {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .audio-controls button {
+            background-color: #550055;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Mystical Universe</h2>
+        <p class="p">Oiee!! Me chamo Lamis Burham Taha, <br> tenho 18 anos e estou cursando TSI na UTFPR.</p>
+        <img id="myImage" src="Imgs/photo.jpeg" alt="Minha foto">
+        
+        <h4 style="text-align: center;">Sobre mim:</h4>
+        <p class="p">Sou uma pessoa bem extrovertida e de mente aberta, gosto sempre de testar coisas novas e me surpreender com as diferentes experiências que a vida pode nos proporcionar; gosto de pensar dessa forma, de que cada dia é único e incrível de sua maneira, seja ela para aprender com seus erros ou crescer através de suas conquistas.</p>
+        
+        <div class="flex-container">
+            <div>
+                <h4>O que mais gosto:</h4>
+                <ul>
+                    <li onclick="playAudio()">Músicas pop</li>
+                    <li onclick="openInstagram()">Conversar</li>
+                    <li onclick="openKaraoke()">Cantar</li>
+                    <li onclick="openMeme()">Dormir bastante</li>
+                    <li onclick="openCats()">Gatos: Milk, Isis e Luke</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Hobbies e passatempos:</h4>
+                <ul>
+                    <li onclick="openRpg()">Jogar RPG's</li>
+                    <li onclick="openAnime()">Assistir animes, séries e filmes</li>
+                    <li onclick="openEdit()">Editar vídeos</li>
+                    <li onclick="openSkoob()">Ler livros de romance</li>
+                    <li onclick="openPorDoSol()">Tirar fotos do pôr do sol</li>
+                </ul>
+            </div>
+        </div>
+
+        <audio id="audio-player" src="Músicas/y2mate.com - GEazy  Halsey  Him  I instrumental best version.mp3"></audio>
+
+        <div class="audio-controls">
+          <button id="play-button" onclick="playAudio()">Play</button>
+          <button id="pause-button" onclick="pauseAudio()">Pause</button>
+          <button id="stop-button" onclick="stopAudio()">Stop</button>
+      </div>
+
+        <script>
+            var audio=document.getElementById("audio-player");
+            var playButton=document.getElementById("play-button");
+            var pauseButton=document.getElementById("pause-button");
+            var stopButton=document.getElementById("stop-button");
+
+            function playAudio(){
+                audio.play();
+            }
+
+            function pauseAudio(){
+                audio.pause();
+            }
+
+            function stopAudio(){
+                audio.pause();
+                audio.currentTime = 0;
+            }
+
+            function openInstagram(){
+                window.open('https://www.instagram.com/laah_taha/', '_blank');
+            }
+
+            function openKaraoke(){
+                window.open('https://www.youtube.com/watch?v=sAmuevpBwH8', '_blank');
+            }
+
+            function openMeme(){
+                window.open("Imgs/meme.jpg");
+            }
+
+            function openCats(){
+                window.open("Imgs/photoCats.jpeg");
+            }
+
+            function openRpg(){
+                window.open("Imgs/thesims_genshin.jpg");
+            }
+
+            function openAnime(){
+                window.open("Imgs/meme2.jpg");
+            }
+
+            function openEdit(){
+                window.open("Vídeo/edit.mp4");
+            }
+
+            function openSkoob(){
+                window.open('https://www.skoob.com.br/usuario/9838894-lamis0', '_blank');
+            }
+
+            function openPorDoSol(){
+                window.open("Imgs/por_do_sol.jpg");
+            }
+
+        </script>
+    </div>
+</body>
+</html>
